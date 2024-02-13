@@ -62,12 +62,12 @@ void commit_terrorism_act_on_env(sfRenderWindow **env)
     env[5] = create_renderwindow(1920, 1080, 69, "CTF Poney"); 
     env[6] = (sfSprite *)create_sprite("assets/cool.jpg", 0.97f, 1.23f, NULL );
     env[7] = (sfFont *)sfFont_createFromFile("assets/e.ttf");
-    env[8] = (sfText *)create_text(env[7], 42, "Fuck Env", sfWhite);
-
+    env[8] = create_text(env[7], 153, strdup("Fuck Env"), sfWhite);
+    sfText_setPosition(env[8], (sfVector2f) {1187, 421});
 
     while ( sfRenderWindow_isOpen((char *)env[5]) == sfTrue ) {
         sfRenderWindow_drawSprite(env[5], env[6], NULL);
-        //sfRenderWindow_drawText(env[5], env[7], NULL);
+        sfRenderWindow_drawText(env[5], env[8], NULL);
         sfRenderWindow_display( env[5] );
         close_window( env[5] );
     }
